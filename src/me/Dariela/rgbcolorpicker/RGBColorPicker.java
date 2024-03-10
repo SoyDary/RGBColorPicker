@@ -31,12 +31,12 @@ public class RGBColorPicker extends JavaPlugin {
 		cm.onStart();
 		cm.updateConfig();
 		registerCommands();
-		Bukkit.getConsoleSender().sendMessage("[RGB Color Picker] Enabled uwu");
+		Bukkit.getConsoleSender().sendMessage("[RGBColorPicker] Enabled uwu");
 		loadMenus();
 	}
 	
 	public void onDisable() {
-		Bukkit.getConsoleSender().sendMessage("[RGB Color Picker] Disabled unu");
+		Bukkit.getConsoleSender().sendMessage("[RGBColorPicker] Disabled unu");
 		unregisterCommands();
 		}
 	
@@ -84,7 +84,7 @@ public class RGBColorPicker extends JavaPlugin {
 		      command.unregister((CommandMap)commandMap.get(Bukkit.getServer()));
 		      return true;
     		
-	    } catch (IllegalArgumentException|IllegalAccessException|NoSuchFieldException|SecurityException illegalArgumentException) {
+	    } catch (Exception e) {
 		      return false;
 	    }
     }

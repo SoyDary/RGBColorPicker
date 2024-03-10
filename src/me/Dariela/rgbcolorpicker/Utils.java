@@ -1,6 +1,5 @@
 package me.Dariela.rgbcolorpicker;
 
-
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -110,7 +109,7 @@ public class Utils {
 
   public TextComponent advColor(String text) {
 		    String ttt = text;
-		    if (ttt.contains("§x"))
+		    if (ttt.contains("ï¿½x"))
 		      ttt = removeRgb(ttt); 
 		    String[] rgb = ChatColor.translateAlternateColorCodes('&', ttt).split(Pattern.quote("#"));
 		    ArrayList<TextComponent> list = new ArrayList<>();
@@ -122,7 +121,7 @@ public class Utils {
 		    for (i = (arrayOfString1 = rgb).length, b = 0; b < i; ) {
 		      String v = arrayOfString1[b];
 		      if (count == 0) {
-		        TextComponent tc0 = new TextComponent(v.replaceAll("&", "§"));
+		        TextComponent tc0 = new TextComponent(v.replaceAll("&", "ï¿½"));
 		        list.add(tc0);
 		      } else {
 		        Boolean isColor = Boolean.valueOf(true);
@@ -140,7 +139,7 @@ public class Utils {
 		          color = "#" + v.substring(0, 6);
 		          v2 = v.substring(6);
 		        } 
-		        TextComponent tc0 = new TextComponent(v2.replaceAll("&", "§"));
+		        TextComponent tc0 = new TextComponent(v2.replaceAll("&", "ï¿½"));
 		        if (isColor.booleanValue())
 		          tc0.setColor(ChatColor.of(color)); 
 		        list.add(tc0);
@@ -190,7 +189,7 @@ public class Utils {
 private String removeRgb(String textold) {
 	    if (textold.length() < 12)
 	      return textold; 
-	    String text = textold.replaceAll("§", "&");
+	    String text = textold.replaceAll("ï¿½", "&");
 	    String endText = text;
 	    String[] rgb = text.split("&x");
 	    byte b;
