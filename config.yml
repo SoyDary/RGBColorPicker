@@ -1,0 +1,40 @@
+# To use hex colors in titles and buttons must be used &#ffff00
+# Available placeholders: %player%, %color%
+# Available actions:
+#   SUGGEST_TEXT ------> Insert the text in the chat, (must be used shift+click)
+#   SUGGEST_COMMAND ---> Suggest a command and reset everything you have written
+#   RUN_COMMAND -------> Execute text as command, if not used (/) the message is sent to chat
+#   COPY_TO_CLIPBOARD -------> Copy text to clipboard
+
+Menus:
+  default:
+    command: rgb
+    button_action: SUGGEST_TEXT
+    button_action_text: "%color%"
+    MainMenu:
+      button_text: "&l█"
+      title: "\n\n\n\n\n\n\n\n\n\n\n\n\n       &f» &#ffb3b3&l&oM&#ffc6b3&l&oa&#ffd9b3&l&oi&#ffecb3&l&on &#ecffb3&l&oc&#d9ffb3&l&oo&#c6ffb3&l&ol&#b3ffb3&l&oo&#b3ffc6&l&or &#b3ffec&l&om&#b3ffff&l&oe&#b3ecff&l&on&#b3d9ff&l&ou &f«"
+      button_hover: "%color%"
+    SubMenu:
+      button_text: "&l█"
+      title: "\n\n\n\n\n\n\n\n\n\n\n\n\n      &7» &f&l&oPick a color &7« \n          &#d9d9d9(Shift+click)"
+      button_hover: "&fClick to insert &7%color% &fin chat"    
+  essentials_nick_example:
+    command: nicks
+    permission: essentials.nick
+    deny_message: "&cYou need the permission &eessentials.nick &cto execute this command!"
+    button_action: RUN_COMMAND
+    button_action_text: "/nick &%color%%player%"
+    MainMenu:
+      button_text: "&l█"
+      title: "\n\n\n\n\n\n\n\n\n\n\n\n\n       &f» &#ffb3b3&l&oM&#ffc6b3&l&oa&#ffd9b3&l&oi&#ffecb3&l&on &#ecffb3&l&oc&#d9ffb3&l&oo&#c6ffb3&l&ol&#b3ffb3&l&oo&#b3ffc6&l&or &#b3ffec&l&om&#b3ffff&l&oe&#b3ecff&l&on&#b3d9ff&l&ou &f«"
+      button_hover: "%color%"
+    SubMenu:
+      button_text: "✎"
+      title: "\n\n\n\n\n\n\n\n\n\n\n\n\n      &7» &f&l&oPick a color &7« \n"
+      button_hover: "&fClick to change the nick color to &%color%%player%"
+      
+Config:
+  main_menu_button:
+    text: "&4&l<&#ff0000&l&m &#ff4000&l&m &#ff8000&l&m &#ffbf00&l&m &#ffff00&l&m &#bfff00&l&m &#80ff00&l&m &#40ff00&l&m &#00ff00&l&m &#00ff40&l&m &#00ff80&l&m &#00ffbf&l&m &#00ffff&l&m &#00bfff&l&m &#0080ff&l&m &#0040ff&l&m &#0000ff&l&m &#4000ff&l&m &#8000ff&l&m &#bf00ff&l&m &#ff00ff&l&m &#ff00bf&l&m &#ff0080&l&m &#ff0040&l&m "
+    hover: "&7&oMain menu"
