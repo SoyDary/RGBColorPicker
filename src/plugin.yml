@@ -2,7 +2,7 @@ name: RGBColorPicker
 main: me.Dariela.rgbcolorpicker.RGBColorPicker
 softdepend: [PlaceholderAPI]
 author: Dariela
-version: 1.0.1
+version: ${project.version}
 api-version: 1.17
 commands:
    rgbcolorpicker:

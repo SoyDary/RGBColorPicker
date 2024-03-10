@@ -10,9 +10,9 @@ import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.Dariela.rgbcolorpicker.objects.CommandManager;
 import me.Dariela.rgbcolorpicker.commands.Commands;
 import me.Dariela.rgbcolorpicker.listeners.Eventos;
+import me.Dariela.rgbcolorpicker.objects.CommandManager;
 import me.Dariela.rgbcolorpicker.objects.HexMenu;
 import me.Dariela.rgbcolorpicker.utils.Colors;
 
