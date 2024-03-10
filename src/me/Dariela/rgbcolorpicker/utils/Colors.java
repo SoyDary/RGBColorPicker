@@ -1,46 +1,15 @@
 package me.Dariela.rgbcolorpicker.utils;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.UUID;
-
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
-
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
-
 import me.Dariela.rgbcolorpicker.RGBColorPicker;
-import me.Dariela.rgbcolorpicker.objects.NekoSkull;
 
 public class Colors {
 	
 	RGBColorPicker plugin;
-	public HashMap<String, NekoSkull> colors = new HashMap<String, NekoSkull>();
 	
 	public Colors(RGBColorPicker plugin) {
 		this.plugin = plugin;
 		
 		
-	}
-	
-	public ItemStack getSkullFromBase64(String b64, String uuid, String name) {	
-		ItemStack item = new ItemStack(Material.PLAYER_HEAD);  
-		SkullMeta skullMeta = (SkullMeta)item.getItemMeta();
-	
-		GameProfile profile = new GameProfile(UUID.fromString(uuid), name);
-		profile.getProperties().put("textures", new Property("textures", b64));
-		try {
-		    Method mtd = skullMeta.getClass().getDeclaredMethod("setProfile", new Class[] { GameProfile.class });
-		    mtd.setAccessible(true);
-		    mtd.invoke(skullMeta, new Object[] { profile });
-		} catch (IllegalAccessException|java.lang.reflect.InvocationTargetException|NoSuchMethodException ex) {
-		    ex.printStackTrace();
-		}
-		item.setItemMeta((ItemMeta)skullMeta);
-	    return item;	
 	}
 	
 	public String[] getColors(int i) {

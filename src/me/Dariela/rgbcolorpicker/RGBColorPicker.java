@@ -1,14 +1,12 @@
 package me.Dariela.rgbcolorpicker;
 
-import java.io.File;
+
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.SimpleCommandMap;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,7 +14,6 @@ import me.Dariela.rgbcolorpicker.objects.CommandManager;
 import me.Dariela.rgbcolorpicker.commands.Commands;
 import me.Dariela.rgbcolorpicker.listeners.Eventos;
 import me.Dariela.rgbcolorpicker.objects.HexMenu;
-import me.Dariela.rgbcolorpicker.objects.NekoSkull;
 import me.Dariela.rgbcolorpicker.utils.Colors;
 
 public class RGBColorPicker extends JavaPlugin {
@@ -36,7 +33,6 @@ public class RGBColorPicker extends JavaPlugin {
 		registerCommands();
 		Bukkit.getConsoleSender().sendMessage("[RGB Color Picker] Enabled uwu");
 		loadMenus();
-		loadHeads();
 	}
 	
 	public void onDisable() {
@@ -100,17 +96,7 @@ public class RGBColorPicker extends JavaPlugin {
 		loadMenus();
 		
 	}
-	public void loadHeads() {
-		File headsFile = new File(getDataFolder(), "heads.yml");
-		FileConfiguration heads = YamlConfiguration.loadConfiguration(headsFile);
-		for(String str : heads.getConfigurationSection("").getKeys(false)) {					
-			int id = heads.getInt(str+".id");
-			String uuid = heads.getString(str+".uuid");
-			String texture = heads.getString(str+".texture");
-			NekoSkull skull = new NekoSkull(str, uuid, texture, id);
-			getColors().colors.put(str, skull);
-		}
-	}
+	
 	public void error(String menu, String reason) {
 		Bukkit.getConsoleSender().sendMessage("[RGB Color Picker] Failed to register the menu '"+menu+"' ("+reason+")");
 		
