@@ -27,6 +27,7 @@ public class ConfigManager {
 		this.plugin = plugin;
 		
 	}
+	
 	public void onStart() {
 		if(!configFile.exists()) {	
             plugin.saveResource("config.yml", false);
@@ -35,8 +36,8 @@ public class ConfigManager {
 		if(!messagesFile.exists()) {	
             plugin.saveResource("messages.yml", true);
       }
-
 	}
+	
 	public void saveConfig() {
 		try {
 			this.config.save(this.configFile);
@@ -44,6 +45,7 @@ public class ConfigManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public void saveMessages() {
 		try {
 			this.messages.save(this.messagesFile);
@@ -51,6 +53,7 @@ public class ConfigManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public void reloadConfig() {
         config = YamlConfiguration.loadConfiguration(configFile);
         messages = YamlConfiguration.loadConfiguration(messagesFile);
@@ -68,6 +71,7 @@ public class ConfigManager {
 			e.printStackTrace();
 		}
 	}
+	
 	public void saveFile(File file, FileConfiguration config) {
 		try {
 			config.save(file);
@@ -75,7 +79,4 @@ public class ConfigManager {
 			e.printStackTrace();
 		}
 	}
-
-	
-	
 }

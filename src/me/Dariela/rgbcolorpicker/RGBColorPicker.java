@@ -98,7 +98,7 @@ public class RGBColorPicker extends JavaPlugin {
 	}
 	
 	public void error(String menu, String reason) {
-		Bukkit.getConsoleSender().sendMessage("[RGB Color Picker] Failed to register the menu '"+menu+"' ("+reason+")");
+		Bukkit.getConsoleSender().sendMessage("[RGBColorPicker] Failed to register the menu '"+menu+"' ("+reason+")");
 		
 	}
 	public void registerCommands() {

@@ -14,8 +14,8 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 
-@SuppressWarnings("deprecation")
 public class HexMenu extends BukkitCommand {
+	
 	private RGBColorPicker plugin;
 	public static CommandMap commandMap = null;
 	public String key;
@@ -52,35 +52,25 @@ public class HexMenu extends BukkitCommand {
 	
 	@Override
 	public boolean execute(CommandSender s, String l, String[] a) {
-		if(s instanceof Player) {		
-			Player p = (Player) s;	
-			if(plugin.menus.containsKey(getLabel())) {		
-				if(permission != null) {
-					if(!p.hasPermission(permission)) {	
-						if(deny_message == null) {
-							p.sendMessage(plugin.getUtils().color(plugin.getConfigManager().messages.getString("default_deny_message")));
-						} else {
-							p.sendMessage(plugin.getUtils().color(deny_message));
-							
-						}
-						
-						return false;
-						}
-		
-					}
-				HexMenu menu = plugin.menus.get(getLabel());
-				if(a.length == 0) {
-					menu.getMainMenu(p);
-				} else {
-					try {
-						menu.getSubMenu(p, Integer.valueOf(a[0]));
-					} catch(NumberFormatException ex) {
-						menu.getMainMenu(p);	
-						
-					}		
-					
-				}		
-				
+		if(!(s instanceof Player p)) return true;
+		if(!plugin.menus.containsKey(getLabel())) return true;	
+		if(permission != null) {
+			if(!p.hasPermission(permission)) {
+				if(deny_message == null) 
+					p.sendMessage(plugin.getUtils().color(plugin.getConfigManager().messages.getString("default_deny_message")));
+				else
+					p.sendMessage(plugin.getUtils().color(deny_message));
+				return false;
+			}
+		}
+		HexMenu menu = plugin.menus.get(getLabel());
+		if(a.length == 0) {
+			menu.getMainMenu(p);
+		} else {
+			try {
+				menu.getSubMenu(p, Integer.valueOf(a[0]));
+			} catch(NumberFormatException ex) {
+				menu.getMainMenu(p);	
 			}
 		}
 		return true;
